@@ -54,7 +54,6 @@
 /* USER CODE BEGIN 0 */
 #include "sys_time.h"
 #include "usart.h"
-#include "attitude.h"
 
 /* USER CODE END 0 */
 
@@ -209,15 +208,14 @@ void USART2_IRQHandler(void)
     uint8_t data;
 
     if(LL_USART_IsActiveFlag_RXNE(USART2))
-    {   //接收DR有数据
+    {   
         /* Read one byte from the receive data register */
         data = LL_USART_ReceiveData8(USART2);
-        Attitude_RecvCmd(data);
     }
 
     if(LL_USART_IsActiveFlag_TXE(USART2))
-    {   //发送DR空
-        if(CL_QueuePoll(&USART2_SendBuffer, &data) == CL_SUCCESS)
+    {   
+        if(CL_QueuePoll(&USART2_SendBuffer, &data) == CL_ResSuccess)
         {
             LL_USART_TransmitData8(USART2, data);
         }
@@ -235,7 +233,6 @@ void USART2_IRQHandler(void)
     if(LL_USART_IsActiveFlag_ORE(USART2))
     {
         data = LL_USART_ReceiveData8(USART2); 
-    //        LIN_RecvData(c);
     }
   /* USER CODE END USART2_IRQn 0 */
   /* USER CODE BEGIN USART2_IRQn 1 */

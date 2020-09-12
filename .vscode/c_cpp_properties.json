@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "arm-gcc",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/SDK/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.0/Drivers/STM32F4xx_HAL_Driver/Inc",
+                "D:/SDK/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
+                "D:/SDK/STM32Cube/Repository/STM32Cube_FW_F4_V1.25.0/Drivers/CMSIS/Include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "STM32F407xx"
+            ],
+            "compilerPath": "D:/Tools/gcc-arm-none-eabi/bin/arm-none-eabi-gcc.exe",
+            "cStandard": "c99",
+            "cppStandard": "c++98",
+            "intelliSenseMode": "gcc-arm",
+            "browse": {
+                "path": [
+                    "D:\\SDK\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.25.0"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}

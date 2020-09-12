@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "*.ioc": true,
+        "**/*.lst": true,
+        "**/*.d": true,
+        "**/*.o": true,
+        ".mxproject": true,
+        "common/clib/testcase": true,
+        "common/clib/Makefile": true,
+        "common/clib/.vscode": true,
+        "common/clib/.gitignore": true
+    },
+    "workbench.editor.enablePreview": false
+}

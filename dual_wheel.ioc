@@ -1,5 +1,6 @@
 #MicroXplorer Configuration settings - do not modify
 File.Version=6
+GPIO.groupedBy=Group By Peripherals
 IWDG.IPParameters=Prescaler,Reload
 IWDG.Prescaler=IWDG_PRESCALER_256
 IWDG.Reload=1250
@@ -101,7 +102,7 @@ ProjectManager.HalAssertFull=false
 ProjectManager.HeapSize=0x200
 ProjectManager.KeepUserCode=true
 ProjectManager.LastFirmware=false
-ProjectManager.LibraryCopy=1
+ProjectManager.LibraryCopy=2
 ProjectManager.MainLocation=Src
 ProjectManager.NoMain=false
 ProjectManager.PreviousToolchain=

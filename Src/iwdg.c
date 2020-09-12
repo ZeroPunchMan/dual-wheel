@@ -46,10 +46,9 @@ void IWDG_Process(void)
     static uint64_t lastFeedTime = 0;
 
     if(TimeElapsed(lastFeedTime) > WDG_FEED_INTERVAL)
-    {   //达到喂狗间隔时间,喂狗
+    {   
         SetToCurTime(&lastFeedTime);
         LL_IWDG_ReloadCounter(IWDG);
-//        Log("定时喂狗\r\n");
     }
 }
 

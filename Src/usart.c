@@ -70,26 +70,6 @@ void MX_USART2_UART_Init(void)
 /* USER CODE BEGIN 1 */
 
 
-//
-int fputc(int ch, FILE *f)
-{
-    uint8_t data = ch;
-    int res;
-
-    res = CL_QueueAdd(&USART2_SendBuffer, &data);
-
-    LL_USART_EnableIT_TXE(USART2);
-    if(res == CL_SUCCESS)
-    {
-        return ch;
-    }
-    else
-    {
-        return EOF;
-    }
-
-}
-
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
