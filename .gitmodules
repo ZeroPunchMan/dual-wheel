@@ -1,0 +1,9 @@
+[submodule "common/cmathex"]
+	path = common/cmathex
+	url = https://github.com/ZeroPunchMan/cmathex.git
+[submodule "common/mcu-misc"]
+	path = common/mcu-misc
+	url = https://github.com/ZeroPunchMan/mcu-misc.git
+[submodule "common/clib"]
+	path = common/clib
+	url = https://github.com/ZeroPunchMan/clib.git
