@@ -22,7 +22,7 @@
 
 /* USER CODE BEGIN 0 */
 
-CL_QUEUE_DEF_INIT(USART2_SendBuffer, 1024, uint8_t, );
+CL_QUEUE_DEF_INIT(USART2_SendQueue, 1024, uint8_t, );
 
 /* USER CODE END 0 */
 
@@ -70,6 +70,20 @@ void MX_USART2_UART_Init(void)
 /* USER CODE BEGIN 1 */
 
 
+int _write(int fd, char *str, int len)
+{
+    if (CL_QueueFreeSpace(&USART2_SendQueue) < len)
+        return 0;
+
+    for (int i = 0; i < len; i++)
+    {
+        uint8_t b = str[i];
+        CL_QueueAdd(&USART2_SendQueue, &b);
+    }
+
+    LL_USART_EnableIT_TXE(USART2);
+    return len;
+}
 /* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

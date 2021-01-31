@@ -32,7 +32,7 @@
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-CL_QUEUE_DECL(USART2_SendBuffer);
+CL_QUEUE_DECL(USART2_SendQueue);
 
 /* USER CODE END Private defines */
 

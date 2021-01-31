@@ -10,5 +10,8 @@
         "common/clib/.vscode": true,
         "common/clib/.gitignore": true
     },
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "files.associations": {
+        "usart.h": "c"
+    }
 }

@@ -28,6 +28,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "sys_time.h"
+#include "cl_log.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -109,7 +110,7 @@ int main(void)
     if (TimeElapsed(lastPrintTime) > 1000)
     {
       SetToCurTime(&lastPrintTime);
-      //      Log("%llds\r\n", g_sysTotalTime / 1000);
+      CL_LOG_LINE("%ds", GetSysTime() / 1000);
     }
   }
   /* USER CODE END 3 */
@@ -123,24 +124,22 @@ void SystemClock_Config(void)
 {
   LL_FLASH_SetLatency(LL_FLASH_LATENCY_5);
 
-  if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_5)
+  if (LL_FLASH_GetLatency() != LL_FLASH_LATENCY_5)
   {
-  Error_Handler();  
+    Error_Handler();
   }
   LL_PWR_SetRegulVoltageScaling(LL_PWR_REGU_VOLTAGE_SCALE1);
   LL_RCC_HSE_Enable();
 
-   /* Wait till HSE is ready */
-  while(LL_RCC_HSE_IsReady() != 1)
+  /* Wait till HSE is ready */
+  while (LL_RCC_HSE_IsReady() != 1)
   {
-    
   }
   LL_RCC_LSI_Enable();
 
-   /* Wait till LSI is ready */
-  while(LL_RCC_LSI_IsReady() != 1)
+  /* Wait till LSI is ready */
+  while (LL_RCC_LSI_IsReady() != 1)
   {
-    
   }
   LL_PWR_EnableBkUpAccess();
   LL_RCC_ForceBackupDomainReset();
@@ -150,27 +149,25 @@ void SystemClock_Config(void)
   LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLLM_DIV_4, 168, LL_RCC_PLLP_DIV_2);
   LL_RCC_PLL_Enable();
 
-   /* Wait till PLL is ready */
-  while(LL_RCC_PLL_IsReady() != 1)
+  /* Wait till PLL is ready */
+  while (LL_RCC_PLL_IsReady() != 1)
   {
-    
   }
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
   LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_4);
   LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_4);
   LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_PLL);
 
-   /* Wait till System clock is ready */
-  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
+  /* Wait till System clock is ready */
+  while (LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
   {
-  
   }
   LL_SetSystemCoreClock(168000000);
 
-   /* Update the time base */
-  if (HAL_InitTick (TICK_INT_PRIORITY) != HAL_OK)
+  /* Update the time base */
+  if (HAL_InitTick(TICK_INT_PRIORITY) != HAL_OK)
   {
-    Error_Handler();  
+    Error_Handler();
   };
 }
 
@@ -192,7 +189,7 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
@@ -201,7 +198,7 @@ void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{ 
+{
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */

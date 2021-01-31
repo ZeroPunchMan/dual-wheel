@@ -215,7 +215,7 @@ void USART2_IRQHandler(void)
 
     if(LL_USART_IsActiveFlag_TXE(USART2))
     {   
-        if(CL_QueuePoll(&USART2_SendBuffer, &data) == CL_ResSuccess)
+        if(CL_QueuePoll(&USART2_SendQueue, &data) == CL_ResSuccess)
         {
             LL_USART_TransmitData8(USART2, data);
         }
