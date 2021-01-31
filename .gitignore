@@ -42,6 +42,7 @@
 # Generated output files
 #/Listings/*
 #/Objects/*
+*.log
 
 # Debugger files
 *.ini  	# define exception below if needed

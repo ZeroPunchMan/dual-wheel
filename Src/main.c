@@ -110,7 +110,8 @@ int main(void)
     if (TimeElapsed(lastPrintTime) > 1000)
     {
       SetToCurTime(&lastPrintTime);
-      CL_LOG_LINE("%ds", GetSysTime() / 1000);
+      
+      CL_LOG_LINE("%lus", (uint32_t)(GetSysTime() / 1000));
     }
   }
   /* USER CODE END 3 */
